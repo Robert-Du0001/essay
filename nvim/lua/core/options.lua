@@ -1,7 +1,6 @@
 local opt = vim.opt
 
 -- 行号
-opt.relativenumber = true -- 相对行号
 opt.number = true
 
 -- 缩进
@@ -16,6 +15,9 @@ opt.wrap = false
 -- 光标行
 opt.cursorline = true
 
+-- 启用鼠标
+opt.mouse:append('a')
+
 -- 系统剪切板
 opt.clipboard:append('unnamedplus')
 
@@ -28,4 +30,6 @@ opt.ignorecase = true -- 忽略大小写
 opt.smartcase = true -- 如果搜索的是大写，则只搜索大写
 
 -- 外观
+opt.termguicolors = true
 opt.signcolumn = 'yes' -- 左侧多一列，对debug和插件提示都有用
+vim.cmd[[colorscheme tokyonight-night]] -- night主题
