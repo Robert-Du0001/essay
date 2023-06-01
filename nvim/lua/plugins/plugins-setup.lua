@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
   use('saadparwaiz1/cmp_luasnip')
   use('rafamadriz/friendly-snippets')
   use('hrsh7th/cmp-path') -- 文件路径
+  use 'hrsh7th/cmp-buffer' -- 从缓冲文件中获取补全的源数据
 
   use 'numToStr/Comment.nvim' -- gcc(单行)和gc（多行）注释
   use 'windwp/nvim-autopairs' -- 自动补全括号

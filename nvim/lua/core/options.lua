@@ -33,3 +33,12 @@ opt.smartcase = true -- 如果搜索的是大写，则只搜索大写
 opt.termguicolors = true
 opt.signcolumn = 'yes' -- 左侧多一列，对debug和插件提示都有用
 vim.cmd[[colorscheme tokyonight-night]] -- night主题
+
+-- 禁止在注释行换行后，自动添加注释符
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*",
+  callback = function()
+      -- 如果只写这个，重新打开文件后还是会自动添加
+      vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+  end,    
+})
