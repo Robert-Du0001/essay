@@ -15,11 +15,8 @@ opt.wrap = false
 -- 光标行
 opt.cursorline = true
 
--- 启用鼠标
-opt.mouse:append('a')
-
--- 系统剪切板
-opt.clipboard:append('unnamedplus')
+-- 禁用鼠标
+opt.mouse = nil
 
 -- 默认新窗口右和下
 opt.splitright = true
@@ -33,6 +30,13 @@ opt.smartcase = true -- 如果搜索的是大写，则只搜索大写
 opt.termguicolors = true
 opt.signcolumn = 'yes' -- 左侧多一列，对debug和插件提示都有用
 vim.cmd[[colorscheme tokyonight-night]] -- night主题
+
+-- 代码折叠
+-- zc 折叠当前嵌套 zo 展开当前嵌套 zC 折叠所有父嵌套 zO 展开所有子嵌套
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()' -- 使用nvim-treesitter的代码折叠
+opt.foldenable = false
+opt.foldlevel = 99
 
 -- 禁止在注释行换行后，自动添加注释符
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
